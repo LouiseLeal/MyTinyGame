@@ -1,0 +1,19 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "76bad5c2df1e411d93c7147a5d0b3352",
+    "Name": "PlayerInput",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "977ae8ddf2e34b7caa0d98628adca0b6",
+        "Name": "TouchPosition",
+        "FieldType": { "Id": "3abb69286ddfc2d1c617a173c1eeb35d", "Name": "Vector2" },
+        "Array": false,
+        "Visibility": 0
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "76bad5c2df1e411d93c7147a5d0b3352", "Name": "PlayerInput" }
+    }
+}]
