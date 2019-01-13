@@ -96,7 +96,7 @@ declare namespace game{
     }
     class PlayerInput extends ut.Component {
         constructor();
-        TouchPosition: ut.Math.Vector2;
+        Axis: ut.Math.Vector2;
         static readonly cid: number;
         static readonly _view: any;
         static readonly _isSharedComp: boolean;

@@ -7,8 +7,8 @@
     "Visibility": 0,
     "TypeCode": "Component",
     "Fields": [{
-        "Id": "977ae8ddf2e34b7caa0d98628adca0b6",
-        "Name": "TouchPosition",
+        "Id": "ff19da6573894010aa379a29c6a137f7",
+        "Name": "Axis",
         "FieldType": { "Id": "3abb69286ddfc2d1c617a173c1eeb35d", "Name": "Vector2" },
         "Array": false,
         "Visibility": 0

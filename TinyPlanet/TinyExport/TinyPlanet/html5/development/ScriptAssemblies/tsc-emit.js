@@ -1,20 +1,76 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+//namespace game {
+/** New System */
+///    export class GameService{
+////start new game
+//        static newGame(world: ut.World) {
+//          console.log("NewGame")
+//          //Instantiate new entity group
+//          ut.EntityGroup.instantiate(world, "game.GameScene");
+//
+//           //setup the initial state for the game
+//          let config = world.getConfigData(game.);
+//
+//        }
+//     
+//    }
+//}
 var game;
 (function (game) {
     /** New System */
-    var GameService = /** @class */ (function () {
-        function GameService() {
+    var PlayerInputSystem = /** @class */ (function (_super) {
+        __extends(PlayerInputSystem, _super);
+        function PlayerInputSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
         }
-        //start new game
-        GameService.newGame = function (world) {
-            console.log("NewGame");
-            //Instantiate new entity group
-            ut.EntityGroup.instantiate(world, "game.GameScene");
-            //setup the initial state for the game
-            var config = world.getConfigData(game.GameConfig);
+        PlayerInputSystem.prototype.OnUpdate = function () {
+            this.world.forEach([game.PlayerInput], function (input) {
+                var axis = new Vector2();
+                if (ut.Runtime.Input.getKey(ut.Core2D.KeyCode.A))
+                    axis.x -= 1;
+                if (ut.Runtime.Input.getKey(ut.Core2D.KeyCode.D))
+                    axis.x += 1;
+                if (ut.Runtime.Input.getKey(ut.Core2D.KeyCode.W))
+                    axis.y += 1;
+                if (ut.Runtime.Input.getKey(ut.Core2D.KeyCode.S))
+                    axis.y -= 1;
+                input.Axis = axis;
+            });
         };
-        return GameService;
-    }());
-    game.GameService = GameService;
+        return PlayerInputSystem;
+    }(ut.ComponentSystem));
+    game.PlayerInputSystem = PlayerInputSystem;
+})(game || (game = {}));
+var game;
+(function (game) {
+    /** New System */
+    var PlayerMoveSystem = /** @class */ (function (_super) {
+        __extends(PlayerMoveSystem, _super);
+        function PlayerMoveSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        PlayerMoveSystem.prototype.OnUpdate = function () {
+            this.world.forEach([game.PlayerInput, ut.Core2D.TransformLocalPosition], function (input, transform) {
+                var x = transform.position.x += input.Axis.x;
+                var y = transform.position.y += input.Axis.y;
+                transform.position = new Vector3(x, y, 0);
+            });
+        };
+        return PlayerMoveSystem;
+    }(ut.ComponentSystem));
+    game.PlayerMoveSystem = PlayerMoveSystem;
 })(game || (game = {}));
 var ut;
 (function (ut) {
