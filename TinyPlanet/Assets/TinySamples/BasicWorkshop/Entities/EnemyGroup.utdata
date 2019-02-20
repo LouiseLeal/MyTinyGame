@@ -54,8 +54,8 @@
             "position": {
                 "Type": { "Id": "f139194553e8ae4a3250c5527d6de169", "Name": "Vector3" },
                 "Properties": {
-                    "x": 7.61,
-                    "y": 0.92
+                    "x": 8,
+                    "y": 3.73
                 }
             }
         }

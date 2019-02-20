@@ -38,6 +38,15 @@ var game;
         BulletBehaviour.prototype.OnEntityEnable = function () {
             console.log("bullet initialized");
         };
+        // this method is called for each entity matching the BulletBehaviourFilter signature, every frame it's enabled
+        BulletBehaviour.prototype.OnEntityUpdate = function () {
+            var localPosition = this.data.position.position;
+            localPosition.y += this.data.speed.speed * ut.Time.deltaTime();
+            this.data.position.position = localPosition;
+            if (localPosition.y >= this.data.bounds.maxY)
+                //this.world.addComponent(this.entity, ut.Disabled);
+                this.world.destroyEntity(this.data.entity);
+        };
         return BulletBehaviour;
     }(ut.ComponentBehaviour));
     game.BulletBehaviour = BulletBehaviour;
@@ -66,7 +75,7 @@ var game;
             var randomX = getRandom(this.data.bounds.minX, this.data.bounds.maxX);
             var newPos = new Vector3(randomX, this.data.bounds.maxY, 0);
             this.data.position.position = newPos;
-            //console.log("enemy initialized. Speed: " + newSpeed);
+            console.log("enemy initialized. Speed: " + newSpeed);
         };
         EnemyBehavior.prototype.OnEntityUpdate = function () {
             var localPosition = this.data.position.position;
@@ -292,10 +301,9 @@ var game;
         }
         SpawnSystem.prototype.OnUpdate = function () {
             var _this = this;
-            this.world.forEach([game.Spawner, game.EnemyTag], function (spawner, tag) {
-                if (spawner.isPaused) {
+            this.world.forEach([game.Spawner], function (spawner) {
+                if (spawner.isPaused)
                     return;
-                }
                 var time = spawner.time;
                 var delay = spawner.delay;
                 time -= ut.Time.deltaTime();

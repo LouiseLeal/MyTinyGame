@@ -118,7 +118,6 @@ declare namespace game{
     }
     class EnemyTag extends ut.Component {
         constructor();
-        number: number;
         static readonly cid: number;
         static readonly _view: any;
         static readonly _isSharedComp: boolean;
@@ -174,6 +173,18 @@ declare namespace game{
         static _tempHeapPtr(v: MoveWithInput): number;
         static _dtorFn(v: MoveWithInput): void;
     }
+    class Name extends ut.Component {
+        constructor();
+        EntityName: string;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: Name): Name;
+        static _toPtr(p: number, v: Name): void;
+        static _tempHeapPtr(v: Name): number;
+        static _dtorFn(v: Name): void;
+    }
     class PlayerTag extends ut.Component {
         constructor();
         static readonly cid: number;
@@ -225,18 +236,6 @@ declare namespace game{
         static _toPtr(p: number, v: SpawnerGroup): void;
         static _tempHeapPtr(v: SpawnerGroup): number;
         static _dtorFn(v: SpawnerGroup): void;
-    }
-    class Name extends ut.Component {
-        constructor();
-        EntityName: string;
-        static readonly cid: number;
-        static readonly _view: any;
-        static readonly _isSharedComp: boolean;
-        static _size: number;
-        static _fromPtr(p: number, v?: Name): Name;
-        static _toPtr(p: number, v: Name): void;
-        static _tempHeapPtr(v: Name): number;
-        static _dtorFn(v: Name): void;
     }
 }
 declare namespace ut{

@@ -60,7 +60,6 @@ namespace game
     }
     public struct EnemyTag : IComponentData
     {
-        public int number;
     }
     public struct InitialPosition : IComponentData
     {
@@ -75,6 +74,10 @@ namespace game
     }
     public struct MoveWithInput : IComponentData
     {
+    }
+    public struct Name : IComponentData
+    {
+        public string EntityName;
     }
     public struct PlayerTag : IComponentData
     {
@@ -95,10 +98,6 @@ namespace game
     public struct SpawnerGroup : IComponentData
     {
         public string spawnerGroup;
-    }
-    public struct Name : IComponentData
-    {
-        public string EntityName;
     }
 }
 
@@ -313,6 +312,14 @@ namespace game
 {
     [UpdateBefore(typeof(UTiny.Shared.InputFence))]
     public class BulletBehaviour_OnEntityEnableJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    [UpdateBefore(typeof(UTiny.Shared.UserCodeEnd))]
+    [UpdateAfter(typeof(UTiny.Shared.UserCodeStart))]
+    public class BulletBehaviour_OnEntityUpdateJS : IComponentSystem
     {
     }
 }

@@ -30,7 +30,7 @@ namespace game
 			
 			this.data.position.position = newPos;
 
-			//console.log("enemy initialized. Speed: " + newSpeed);
+			console.log("enemy initialized. Speed: " + newSpeed);
         }
         
         OnEntityUpdate():void 

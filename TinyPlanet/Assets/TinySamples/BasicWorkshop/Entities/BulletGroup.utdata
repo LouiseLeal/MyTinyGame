@@ -5,12 +5,12 @@
     "ExportFlags": 0,
     "SerializedVersion": 0,
     "Entities": [
-        { "$TypeId": 9, "Id": "1cbdc14321824432884463a6da55d343", "Name": "Bullet" }
+        { "$TypeId": 9, "Id": "fa62bea6ade340bfa049dc08fffcba4e", "Name": "Bullet" }
     ]
 },
 {
     "$TypeId": 5,
-    "Id": "1cbdc14321824432884463a6da55d343",
+    "Id": "fa62bea6ade340bfa049dc08fffcba4e",
     "Name": "Bullet",
     "Enabled": true,
     "Static": false,
@@ -23,20 +23,33 @@
             "position": {
                 "Type": { "Id": "f139194553e8ae4a3250c5527d6de169", "Name": "Vector3" },
                 "Properties": {
-                    "x": 5.8,
-                    "y": -0.17,
-                    "z": -180
+                    "x": 8,
+                    "y": 4.51
                 }
             }
         }
     }, {
-        "Type": { "Id": "2266a95f5d16ca1ddde710d7c047ba69", "Name": "TransformLocalRotation" }
-    }, {
-        "Type": { "Id": "f11fe490eefc969bbc3fde5eab5ccd1e", "Name": "TransformLocalScale" }
+        "Type": { "Id": "2266a95f5d16ca1ddde710d7c047ba69", "Name": "TransformLocalRotation" },
+        "Properties": {
+            "rotation": {
+                "Type": { "Id": "dc7e11e5d517ed01fd5d084a6c9fd64d", "Name": "Quaternion" },
+                "Properties": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                }
+            }
+        }
     }, {
         "Type": { "Id": "1c504a8a7963db0d32e89b527b90e057", "Name": "Sprite2DRenderer" },
         "Properties": {
             "sprite": { "$TypeId": 10, "Guid": "23433a877f75d754c9f1bfb18e7493a4", "FileId": 21300030, "Type": 3 }
+        }
+    }, {
+        "Type": { "Id": "b1e5348389156b7a260d6ed393754fba", "Name": "LayerSorting" },
+        "Properties": {
+            "order": 6
         }
     }, {
         "Type": { "Id": "95eba163dce5bfff5420a5a8c2845523", "Name": "Sprite2DSequence" },
@@ -51,6 +64,17 @@
             "frameRate": 12
         }
     }, {
+        "Type": { "Id": "d2cfd18aa4facc33b1da7ae05205691b", "Name": "Sprite2DSequencePlayer" },
+        "Properties": {
+            "sequence": { "$TypeId": 9, "Id": "fa62bea6ade340bfa049dc08fffcba4e", "Name": "Bullet" },
+            "speed": 1
+        }
+    }, {
+        "Type": { "Id": "bc4fd20a740a4312ae89c6d3cc28c5df", "Name": "MoveSpeed" },
+        "Properties": {
+            "speed": 3
+        }
+    }, {
         "Type": { "Id": "00cadf6efe1d47d29c52cda6cbf763f2", "Name": "Boundaries" },
         "Properties": {
             "minX": -3.5,
@@ -59,42 +83,19 @@
             "maxY": 6
         }
     }, {
-        "Type": { "Id": "b1e5348389156b7a260d6ed393754fba", "Name": "LayerSorting" },
-        "Properties": {
-            "order": 7
-        }
-    }, {
-        "Type": { "Id": "d2cfd18aa4facc33b1da7ae05205691b", "Name": "Sprite2DSequencePlayer" },
-        "Properties": {
-            "sequence": { "$TypeId": 9, "Id": "1cbdc14321824432884463a6da55d343", "Name": "Bullet" },
-            "speed": 1
-        }
-    }, {
         "Type": { "Id": "a015bc52c7befa4d7484891d74d2b574", "Name": "RectHitBox2D" },
         "Properties": {
             "box": {
                 "Type": { "Id": "f216da154c4054842adb590807e977ba", "Name": "Rect" },
                 "Properties": {
-                    "x": -0.11,
-                    "y": -0.18,
-                    "width": 0.22,
-                    "height": 0.42
+                    "x": -0.1,
+                    "y": 0.02,
+                    "width": 0.19,
+                    "height": 0.21
                 }
             }
         }
     }, {
         "Type": { "Id": "03da28ae206b4c1889bd9630fdfa5444", "Name": "BulletTag" }
-    }, {
-        "Type": { "Id": "bc4fd20a740a4312ae89c6d3cc28c5df", "Name": "MoveSpeed" },
-        "Properties": {
-            "speed": 1
-        }
-    }, {
-        "Type": { "Id": "352203b894f24be7bc27210d45df0b79", "Name": "InitialPosition" }
-    }, {
-        "Type": { "Id": "2f2386c6415b4272a9b775e28b54ba8a", "Name": "Name" },
-        "Properties": {
-            "EntityName": "bullet"
-        }
     }]
 }]

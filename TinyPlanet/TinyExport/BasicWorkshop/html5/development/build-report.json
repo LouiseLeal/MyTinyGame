@@ -84,20 +84,20 @@
         "Children": [{
             "Item": {
                 "Name": "TinyExport/BasicWorkshop/html5/development/bin/entities.js",
-                "Size": 18671,
-                "CompressedSize": 3132
+                "Size": 17861,
+                "CompressedSize": 2992
             },
             "Children": [{
                 "Item": {
                     "Name": "BulletGroup",
-                    "Size": 2879,
-                    "CompressedSize": 863
+                    "Size": 2342,
+                    "CompressedSize": 753
                 }
             }, {
                 "Item": {
                     "Name": "EnemyGroup",
-                    "Size": 2115,
-                    "CompressedSize": 724
+                    "Size": 2039,
+                    "CompressedSize": 707
                 }
             }, {
                 "Item": {
@@ -108,15 +108,15 @@
             }, {
                 "Item": {
                     "Name": "MainGroup",
-                    "Size": 11398,
-                    "CompressedSize": 2251
+                    "Size": 11201,
+                    "CompressedSize": 2212
                 }
             }]
         }, {
             "Item": {
                 "Name": "TinyExport/BasicWorkshop/html5/development/bin/bindings.js",
-                "Size": 135169,
-                "CompressedSize": 10968
+                "Size": 134866,
+                "CompressedSize": 10904
             }
         }, {
             "Item": {
@@ -127,15 +127,15 @@
             "Children": [{
                 "Item": {
                     "Name": "/Users/clou/MyTinyGame/TinyPlanet/TinyExport/BasicWorkshop/html5/development/ScriptAssemblies/tsc-emit.js",
-                    "Size": 18824,
-                    "CompressedSize": 3832
+                    "Size": 19359,
+                    "CompressedSize": 3861
                 }
             }]
         }, {
             "Item": {
                 "Name": "TinyExport/BasicWorkshop/html5/development/bin/main.js",
-                "Size": 7228,
-                "CompressedSize": 1560
+                "Size": 7577,
+                "CompressedSize": 1580
             }
         }, {
             "Item": {

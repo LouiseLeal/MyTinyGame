@@ -13,7 +13,7 @@
         { "$TypeId": 9, "Id": "7b5193409eac4c63a755fbcb66ed1246", "Name": "BackgroundParallax" },
         { "$TypeId": 9, "Id": "f1e79ead8b0d47f69e81054a4be1f078", "Name": "Player" },
         { "$TypeId": 9, "Id": "ec730627d9584ebbbbda879b8fdd05d6", "Name": "EnemySpawner" },
-        { "$TypeId": 9, "Id": "58d37c5722aa48cdac12fac588df1642", "Name": "BulletSpawner" }
+        { "$TypeId": 9, "Id": "b040e5a460c64db29f60ed41bc95d1e0", "Name": "BulletSpawner" }
     ]
 },
 {
@@ -452,11 +452,6 @@
         }
     }, {
         "Type": { "Id": "f09ab5d648744cca971aae793d1634f1", "Name": "PlayerTag" }
-    }, {
-        "Type": { "Id": "2f2386c6415b4272a9b775e28b54ba8a", "Name": "Name" },
-        "Properties": {
-            "EntityName": "player"
-        }
     }]
 },
 {
@@ -471,23 +466,21 @@
         "Properties": {
             "spawnedGroup": "game.EnemyGroup"
         }
-    }, {
-        "Type": { "Id": "9fa7f2c75c774b95a033893772a3562d", "Name": "EnemyTag" }
     }]
 },
 {
     "$TypeId": 5,
-    "Id": "58d37c5722aa48cdac12fac588df1642",
+    "Id": "b040e5a460c64db29f60ed41bc95d1e0",
     "Name": "BulletSpawner",
     "Enabled": true,
     "Static": false,
     "Layer": 0,
     "Components": [{
+        "Type": { "Id": "03da28ae206b4c1889bd9630fdfa5444", "Name": "BulletTag" }
+    }, {
         "Type": { "Id": "af1af86ecf9f4e818db531949fdb539a", "Name": "SpawnerGroup" },
         "Properties": {
             "spawnerGroup": "game.BulletGroup"
         }
-    }, {
-        "Type": { "Id": "03da28ae206b4c1889bd9630fdfa5444", "Name": "BulletTag" }
     }]
 }]

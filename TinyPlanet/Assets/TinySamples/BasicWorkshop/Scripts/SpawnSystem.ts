@@ -6,12 +6,11 @@ namespace game
 	{
         OnUpdate():void 
 		{
-			this.world.forEach([game.Spawner, game.EnemyTag], (spawner,tag) => 
+			this.world.forEach([game.Spawner], (spawner) => 
 			{
-                if (spawner.isPaused){ 
-                    return;
-                }
-            
+				if (spawner.isPaused) 
+					return;
+
 				let time = spawner.time;
 				let delay = spawner.delay;
 				
@@ -20,8 +19,8 @@ namespace game
 				if (time <= 0) 
 				{
 					time += delay;
-					ut.EntityGroup.instantiate(this.world, spawner.spawnedGroup);
 					
+					ut.EntityGroup.instantiate(this.world, spawner.spawnedGroup);
 				}
 
 				spawner.time = time;

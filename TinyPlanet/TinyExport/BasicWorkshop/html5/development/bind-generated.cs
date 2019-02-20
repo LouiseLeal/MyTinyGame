@@ -95,7 +95,6 @@ namespace game
     {
 
 
-        public int number;
 
 
 
@@ -154,6 +153,19 @@ namespace game
 namespace game
 {
     [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct Name : UTiny.IComponentData
+    {
+
+
+        public string EntityName;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
     public struct PlayerTag : UTiny.IComponentData
     {
 
@@ -202,19 +214,6 @@ namespace game
 
 
         public string spawnerGroup;
-
-
-
-    }
-}
-namespace game
-{
-    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
-    public struct Name : UTiny.IComponentData
-    {
-
-
-        public string EntityName;
 
 
 

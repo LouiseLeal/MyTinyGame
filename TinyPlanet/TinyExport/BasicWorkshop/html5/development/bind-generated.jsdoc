@@ -78,12 +78,6 @@
 */
 /**
 
-@member {int32}
-@memberof game.EnemyTag
-@name number
-*/
-/**
-
 @component
 @memberof game
 @name InitialPosition
@@ -117,6 +111,18 @@
 @component
 @memberof game
 @name MoveWithInput
+*/
+/**
+
+@component
+@memberof game
+@name Name
+*/
+/**
+
+@member {string}
+@memberof game.Name
+@name EntityName
 */
 /**
 
@@ -189,18 +195,6 @@
 @member {string}
 @memberof game.SpawnerGroup
 @name spawnerGroup
-*/
-/**
-
-@component
-@memberof game
-@name Name
-*/
-/**
-
-@member {string}
-@memberof game.Name
-@name EntityName
 */
 /**
 
@@ -537,6 +531,12 @@
 @system
 @memberof game
 @name BulletBehaviour_OnEntityEnableJS
+*/
+/**
+
+@system
+@memberof game
+@name BulletBehaviour_OnEntityUpdateJS
 */
 /**
 

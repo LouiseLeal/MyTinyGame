@@ -24,13 +24,14 @@ ut.importModule(ut.HitBox2D);
 ut.importModule(ut.Core2D);
 ut.main = function() {
     game.BulletBehaviourFilter._Components = [ut.Entity, 
-        game.BulletTag, ut.Core2D.TransformLocalPosition, game.MoveSpeed
+        game.BulletTag, ut.Core2D.TransformLocalPosition, game.MoveSpeed, game.Boundaries
     ];
     game.BulletBehaviourFilter.prototype.Read = function(world, entity) {
         this.entity = entity;
         this.tag = world.getComponentData(entity, game.BulletTag);
         this.position = world.getComponentData(entity, ut.Core2D.TransformLocalPosition);
         this.speed = world.getComponentData(entity, game.MoveSpeed);
+        this.bounds = world.getComponentData(entity, game.Boundaries);
     };
     game.BulletBehaviourFilter.prototype.Reset = function() {
         this.entity = undefined;
@@ -38,15 +39,17 @@ ut.main = function() {
         this.position = undefined;
         this.speed = undefined;
         this.initialPoition = undefined;
+        this.bounds = undefined;
     };
     game.BulletBehaviourFilter.prototype.Write = function(world, entity) {
         world.setComponentData(entity, this.tag);
         world.setComponentData(entity, this.position);
         world.setComponentData(entity, this.speed);
+        world.setComponentData(entity, this.bounds);
     };
     game.BulletBehaviourFilter.prototype.ForEach = function(world, callback) {
         var _this = this;
-        world.forEach(this.constructor._Components, function($entity, tag, position, speed) {
+        world.forEach(this.constructor._Components, function($entity, tag, position, speed, bounds) {
             _this.Read(world, $entity);
             callback($entity);
             if (world.exists($entity)) { _this.Write(world, $entity); }
@@ -105,6 +108,7 @@ ut.main = function() {
     game.ScrollingBackgroundSystemJS.update = new game.ScrollingBackgroundSystem()._MakeSystemFn();
     game.SpawnSystemJS.update = new game.SpawnSystem()._MakeSystemFn();
     ut.TimeJS.update = new ut.Time()._MakeSystemFn();
+    game.BulletBehaviour_OnEntityUpdateJS.update = game.BulletBehaviour.Instance._MakeOnEntityUpdate();
     game.EnemyBehavior_OnEntityUpdateJS.update = game.EnemyBehavior.Instance._MakeOnEntityUpdate();
     scheduler.schedule(ut.HTML.InputHandler);
     scheduler.schedule(ut.HTML.AssetLoader);
@@ -120,6 +124,7 @@ ut.main = function() {
     scheduler.schedule(game.SpawnSystemJS);
     scheduler.schedule(ut.TimeJS);
     scheduler.schedule(ut.Shared.UserCodeStart);
+    scheduler.schedule(game.BulletBehaviour_OnEntityUpdateJS);
     scheduler.schedule(game.EnemyBehavior_OnEntityUpdateJS);
     scheduler.schedule(ut.Shared.UserCodeEnd);
     scheduler.schedule(ut.Particles.ParticleSystem);
