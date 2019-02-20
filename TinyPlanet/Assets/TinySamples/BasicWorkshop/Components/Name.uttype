@@ -1,0 +1,19 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "2f2386c6415b4272a9b775e28b54ba8a",
+    "Name": "Name",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "0ce7ba4399424d369d08888efb2fb853",
+        "Name": "EntityName",
+        "FieldType": { "Id": "1bff5adddd7c41de98d3329c7c641208", "Name": "String" },
+        "Array": false,
+        "Visibility": 0
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "2f2386c6415b4272a9b775e28b54ba8a", "Name": "Name" }
+    }
+}]

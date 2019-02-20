@@ -19,6 +19,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var game;
 (function (game) {
+    var BulletBehaviourFilter = /** @class */ (function (_super) {
+        __extends(BulletBehaviourFilter, _super);
+        function BulletBehaviourFilter() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        return BulletBehaviourFilter;
+    }(ut.EntityFilter));
+    game.BulletBehaviourFilter = BulletBehaviourFilter;
+    var BulletBehaviour = /** @class */ (function (_super) {
+        __extends(BulletBehaviour, _super);
+        function BulletBehaviour() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        // ComponentBehaviour lifecycle events
+        // uncomment any method you need
+        // this method is called for each entity matching the BulletBehaviourFilter signature, once when enabled
+        BulletBehaviour.prototype.OnEntityEnable = function () {
+            console.log("bullet initialized");
+        };
+        return BulletBehaviour;
+    }(ut.ComponentBehaviour));
+    game.BulletBehaviour = BulletBehaviour;
+})(game || (game = {}));
+var game;
+(function (game) {
     /** New Filter */
     var EnemyBehaviorFilter = /** @class */ (function (_super) {
         __extends(EnemyBehaviorFilter, _super);
@@ -41,7 +66,7 @@ var game;
             var randomX = getRandom(this.data.bounds.minX, this.data.bounds.maxX);
             var newPos = new Vector3(randomX, this.data.bounds.maxY, 0);
             this.data.position.position = newPos;
-            console.log("enemy initialized. Speed: " + newSpeed);
+            //console.log("enemy initialized. Speed: " + newSpeed);
         };
         EnemyBehavior.prototype.OnEntityUpdate = function () {
             var localPosition = this.data.position.position;
@@ -166,6 +191,37 @@ var game;
 var game;
 (function (game) {
     /** New System */
+    var InputShootSystem = /** @class */ (function (_super) {
+        __extends(InputShootSystem, _super);
+        function InputShootSystem() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        InputShootSystem.prototype.OnUpdate = function () {
+            var _this = this;
+            if (ut.Runtime.Input.getKey(ut.Core2D.KeyCode.Space)) {
+                console.log("press space ");
+                var playerPosition_1 = new Vector3(0, 0, 0);
+                this.world.forEach([game.PlayerTag, ut.Core2D.TransformLocalPosition], function (tag, position) {
+                    playerPosition_1 = position.position;
+                    console.log("find player");
+                });
+                this.world.forEach([game.BulletTag, game.SpawnerGroup], function (tag, spawner) {
+                    //Todo put some time delay
+                    var aux = ut.EntityGroup.instantiate(_this.world, spawner.spawnerGroup);
+                    _this.world.usingComponentData(aux[0], [ut.Core2D.TransformLocalPosition], function (bulltePos) {
+                        bulltePos.position = playerPosition_1;
+                    });
+                    console.log("try to stantiate  ");
+                });
+            }
+        };
+        return InputShootSystem;
+    }(ut.ComponentSystem));
+    game.InputShootSystem = InputShootSystem;
+})(game || (game = {}));
+var game;
+(function (game) {
+    /** New System */
     var PlayerCollisionSystem = /** @class */ (function (_super) {
         __extends(PlayerCollisionSystem, _super);
         function PlayerCollisionSystem() {
@@ -174,13 +230,27 @@ var game;
         PlayerCollisionSystem.prototype.OnUpdate = function () {
             var _this = this;
             var isGameOver = false;
+            var colliderWithEnemy = false;
+            //this.world.forEach([ut.Entity,game.EnemyTag,ut.HitBox2D.HitBoxOverlapResults], (entity, tag, hitbox) =>{
+            //});
             this.world.forEach([ut.Entity, ut.Core2D.TransformLocalPosition, ut.HitBox2D.HitBoxOverlapResults, game.PlayerTag], function (entity, position, contacts, tag) {
-                var explosion = ut.EntityGroup.instantiate(_this.world, game.PlayerCollisionSystem.explosionGroupName)[0];
-                _this.world.usingComponentData(explosion, [ut.Core2D.TransformLocalPosition], function (explosionPos) {
-                    explosionPos.position = position.position;
-                });
-                _this.world.destroyEntity(entity);
-                isGameOver = true;
+                for (var i = 0; i < contacts.overlaps.length; i++) {
+                    _this.world.usingComponentData(contacts.overlaps[i].otherEntity, [game.Name], function (name) {
+                        if (name.EntityName == "enemy") {
+                            colliderWithEnemy = true;
+                        }
+                    });
+                    if (colliderWithEnemy)
+                        break;
+                }
+                if (colliderWithEnemy) {
+                    var explosion = ut.EntityGroup.instantiate(_this.world, game.PlayerCollisionSystem.explosionGroupName)[0];
+                    _this.world.usingComponentData(explosion, [ut.Core2D.TransformLocalPosition], function (explosionPos) {
+                        explosionPos.position = position.position;
+                    });
+                    _this.world.destroyEntity(entity);
+                    isGameOver = true;
+                }
             });
             if (isGameOver)
                 game.GameService.restart(this.world);
@@ -222,9 +292,10 @@ var game;
         }
         SpawnSystem.prototype.OnUpdate = function () {
             var _this = this;
-            this.world.forEach([game.Spawner], function (spawner) {
-                if (spawner.isPaused)
+            this.world.forEach([game.Spawner, game.EnemyTag], function (spawner, tag) {
+                if (spawner.isPaused) {
                     return;
+                }
                 var time = spawner.time;
                 var delay = spawner.delay;
                 time -= ut.Time.deltaTime();

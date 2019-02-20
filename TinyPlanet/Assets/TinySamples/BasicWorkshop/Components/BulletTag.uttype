@@ -1,0 +1,12 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "03da28ae206b4c1889bd9630fdfa5444",
+    "Name": "BulletTag",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "DefaultValue": {
+        "Type": { "Id": "03da28ae206b4c1889bd9630fdfa5444", "Name": "BulletTag" }
+    }
+}]

@@ -1,0 +1,106 @@
+﻿{
+    "Item": {
+        "Name": "Project",
+        "Size": 0,
+        "CompressedSize": 0
+    },
+    "Children": [{
+        "Item": {
+            "Name": "Runtime",
+            "Size": 0,
+            "CompressedSize": 0
+        },
+        "Children": [{
+            "Item": {
+                "Name": "TinyExport/TinyPlanet/html5/development/bin/runtime.js",
+                "Size": 5664364,
+                "CompressedSize": 700818
+            }
+        }]
+    }, {
+        "Item": {
+            "Name": "Assets",
+            "Size": 0,
+            "CompressedSize": 0
+        },
+        "Children": [{
+            "Item": {
+                "Name": "JavaScript",
+                "Size": 1736,
+                "CompressedSize": 0
+            }
+        }, {
+            "Item": {
+                "Name": "Assets/Textures/MePixel.png",
+                "Size": 0,
+                "CompressedSize": 0,
+                "Object": { "$TypeId": 10, "Guid": "7053e9bcb986b484dbcf6632d20a2c8f", "FileId": 2800000, "Type": 3 }
+            },
+            "Children": [{
+                "Item": {
+                    "Name": "TinyExport/Assets/MePixel.png",
+                    "Size": 12848,
+                    "CompressedSize": 2037,
+                    "Object": { "$TypeId": 10, "Guid": "7053e9bcb986b484dbcf6632d20a2c8f", "FileId": 2800000, "Type": 3 }
+                }
+            }]
+        }]
+    }, {
+        "Item": {
+            "Name": "Code",
+            "Size": 0,
+            "CompressedSize": 0
+        },
+        "Children": [{
+            "Item": {
+                "Name": "TinyExport/TinyPlanet/html5/development/bin/entities.js",
+                "Size": 2776,
+                "CompressedSize": 909
+            },
+            "Children": [{
+                "Item": {
+                    "Name": "Bootstrap",
+                    "Size": 112,
+                    "CompressedSize": 100
+                }
+            }, {
+                "Item": {
+                    "Name": "GameScene",
+                    "Size": 2587,
+                    "CompressedSize": 812
+                }
+            }]
+        }, {
+            "Item": {
+                "Name": "TinyExport/TinyPlanet/html5/development/bin/bindings.js",
+                "Size": 86799,
+                "CompressedSize": 7044
+            }
+        }, {
+            "Item": {
+                "Name": "Linked Code Files",
+                "Size": 0,
+                "CompressedSize": 0
+            },
+            "Children": [{
+                "Item": {
+                    "Name": "/Users/clou/MyTinyGame/TinyPlanet/TinyExport/TinyPlanet/html5/development/ScriptAssemblies/tsc-emit.js",
+                    "Size": 5948,
+                    "CompressedSize": 1641
+                }
+            }]
+        }, {
+            "Item": {
+                "Name": "TinyExport/TinyPlanet/html5/development/bin/main.js",
+                "Size": 2357,
+                "CompressedSize": 799
+            }
+        }, {
+            "Item": {
+                "Name": "TinyExport/TinyPlanet/html5/development/bin/wsclient.js",
+                "Size": 9651,
+                "CompressedSize": 2635
+            }
+        }]
+    }]
+}

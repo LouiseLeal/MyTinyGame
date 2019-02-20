@@ -16,6 +16,12 @@ using ut.EditorExtensions;
  */
 namespace entities.game
 {
+    namespace BulletGroup
+    {
+        public struct Component : IComponentData
+        {
+        }
+    }
     namespace EnemyGroup
     {
         public struct Component : IComponentData
@@ -45,11 +51,22 @@ namespace game
         public float minY;
         public float maxY;
     }
+    public struct BulletTag : IComponentData
+    {
+    }
     public struct ChangeOverTime : IComponentData
     {
         public float changePerSecond;
     }
     public struct EnemyTag : IComponentData
+    {
+        public int number;
+    }
+    public struct InitialPosition : IComponentData
+    {
+        public Vector3 position;
+    }
+    public struct Lazer : IComponentData
     {
     }
     public struct MoveSpeed : IComponentData
@@ -74,6 +91,14 @@ namespace game
         public float delay;
         public bool isPaused;
         public string spawnedGroup;
+    }
+    public struct SpawnerGroup : IComponentData
+    {
+        public string spawnerGroup;
+    }
+    public struct Name : IComponentData
+    {
+        public string EntityName;
     }
 }
 
@@ -228,6 +253,16 @@ namespace ut.EditorExtensions
 }
 namespace game
 {
+    public struct BulletBehaviour_State : IComponentData
+    {
+        public bool initialized;
+        public bool enabled;
+        public bool onEnableCalled;
+        public bool onDisableCalled;
+    }
+}
+namespace game
+{
     public struct EnemyBehavior_State : IComponentData
     {
         public bool initialized;
@@ -240,6 +275,12 @@ namespace game
 {
     [UpdateAfter(typeof(UTiny.Shared.InputFence))]
     public class InputMovementSystemJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    public class InputShootSystemJS : IComponentSystem
     {
     }
 }
@@ -265,6 +306,13 @@ namespace ut
 {
     [UpdateBefore(typeof(UTiny.Shared.UserCodeStart))]
     public class TimeJS : IComponentSystem
+    {
+    }
+}
+namespace game
+{
+    [UpdateBefore(typeof(UTiny.Shared.InputFence))]
+    public class BulletBehaviour_OnEntityEnableJS : IComponentSystem
     {
     }
 }

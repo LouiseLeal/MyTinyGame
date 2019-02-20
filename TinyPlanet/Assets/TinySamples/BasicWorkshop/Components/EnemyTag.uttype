@@ -1,0 +1,19 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "9fa7f2c75c774b95a033893772a3562d",
+    "Name": "EnemyTag",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "e025019cea984ac39267988d9a284686",
+        "Name": "number",
+        "FieldType": { "Id": "9633c95a0a68473682f09ed6a01194b4", "Name": "Int32" },
+        "Array": false,
+        "Visibility": 0
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "9fa7f2c75c774b95a033893772a3562d", "Name": "EnemyTag" }
+    }
+}]

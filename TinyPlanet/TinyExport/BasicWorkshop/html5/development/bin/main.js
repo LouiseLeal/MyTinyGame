@@ -23,6 +23,35 @@ ut.importModule(ut.Interpolation);
 ut.importModule(ut.HitBox2D);
 ut.importModule(ut.Core2D);
 ut.main = function() {
+    game.BulletBehaviourFilter._Components = [ut.Entity, 
+        game.BulletTag, ut.Core2D.TransformLocalPosition, game.MoveSpeed
+    ];
+    game.BulletBehaviourFilter.prototype.Read = function(world, entity) {
+        this.entity = entity;
+        this.tag = world.getComponentData(entity, game.BulletTag);
+        this.position = world.getComponentData(entity, ut.Core2D.TransformLocalPosition);
+        this.speed = world.getComponentData(entity, game.MoveSpeed);
+    };
+    game.BulletBehaviourFilter.prototype.Reset = function() {
+        this.entity = undefined;
+        this.tag = undefined;
+        this.position = undefined;
+        this.speed = undefined;
+        this.initialPoition = undefined;
+    };
+    game.BulletBehaviourFilter.prototype.Write = function(world, entity) {
+        world.setComponentData(entity, this.tag);
+        world.setComponentData(entity, this.position);
+        world.setComponentData(entity, this.speed);
+    };
+    game.BulletBehaviourFilter.prototype.ForEach = function(world, callback) {
+        var _this = this;
+        world.forEach(this.constructor._Components, function($entity, tag, position, speed) {
+            _this.Read(world, $entity);
+            callback($entity);
+            if (world.exists($entity)) { _this.Write(world, $entity); }
+        });
+    };
     game.EnemyBehaviorFilter._Components = [ut.Entity, 
         ut.Core2D.TransformLocalPosition, game.EnemyTag, game.MoveSpeed, game.ChangeOverTime, game.Boundaries
     ];
@@ -57,6 +86,9 @@ ut.main = function() {
             if (world.exists($entity)) { _this.Write(world, $entity); }
         });
     };
+    game.BulletBehaviour.Instance = new game.BulletBehaviour();
+    game.BulletBehaviour._StateType = game.BulletBehaviour_State;
+    game.BulletBehaviour.prototype._GetFilter = function() { if (!this.data) { this.data = new game.BulletBehaviourFilter(); } return this.data; }
     game.EnemyBehavior.Instance = new game.EnemyBehavior();
     game.EnemyBehavior._StateType = game.EnemyBehavior_State;
     game.EnemyBehavior.prototype._GetFilter = function() { if (!this.data) { this.data = new game.EnemyBehaviorFilter(); } return this.data; }
@@ -65,8 +97,10 @@ ut.main = function() {
 
     // Schedule all systems
     var scheduler = world.scheduler();
+    game.BulletBehaviour_OnEntityEnableJS.update = game.BulletBehaviour.Instance._MakeOnEntityEnable();
     game.EnemyBehavior_OnEntityEnableJS.update = game.EnemyBehavior.Instance._MakeOnEntityEnable();
     game.InputMovementSystemJS.update = new game.InputMovementSystem()._MakeSystemFn();
+    game.InputShootSystemJS.update = new game.InputShootSystem()._MakeSystemFn();
     game.PlayerCollisionSystemJS.update = new game.PlayerCollisionSystem()._MakeSystemFn();
     game.ScrollingBackgroundSystemJS.update = new game.ScrollingBackgroundSystem()._MakeSystemFn();
     game.SpawnSystemJS.update = new game.SpawnSystem()._MakeSystemFn();
@@ -76,9 +110,11 @@ ut.main = function() {
     scheduler.schedule(ut.HTML.AssetLoader);
     scheduler.schedule(ut.HitBox2D.HitBox2DSystem);
     scheduler.schedule(ut.Core2D.SequencePlayerSystem);
+    scheduler.schedule(game.BulletBehaviour_OnEntityEnableJS);
     scheduler.schedule(game.EnemyBehavior_OnEntityEnableJS);
     scheduler.schedule(ut.Shared.InputFence);
     scheduler.schedule(game.InputMovementSystemJS);
+    scheduler.schedule(game.InputShootSystemJS);
     scheduler.schedule(game.PlayerCollisionSystemJS);
     scheduler.schedule(game.ScrollingBackgroundSystemJS);
     scheduler.schedule(game.SpawnSystemJS);

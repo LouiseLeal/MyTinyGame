@@ -26,7 +26,7 @@
         "Children": [{
             "Item": {
                 "Name": "JavaScript",
-                "Size": 8739,
+                "Size": 10041,
                 "CompressedSize": 0
             }
         }, {
@@ -84,14 +84,20 @@
         "Children": [{
             "Item": {
                 "Name": "TinyExport/BasicWorkshop/html5/development/bin/entities.js",
-                "Size": 15097,
-                "CompressedSize": 2685
+                "Size": 18671,
+                "CompressedSize": 3132
             },
             "Children": [{
                 "Item": {
+                    "Name": "BulletGroup",
+                    "Size": 2879,
+                    "CompressedSize": 863
+                }
+            }, {
+                "Item": {
                     "Name": "EnemyGroup",
-                    "Size": 1933,
-                    "CompressedSize": 681
+                    "Size": 2115,
+                    "CompressedSize": 724
                 }
             }, {
                 "Item": {
@@ -102,15 +108,15 @@
             }, {
                 "Item": {
                     "Name": "MainGroup",
-                    "Size": 10884,
-                    "CompressedSize": 2155
+                    "Size": 11398,
+                    "CompressedSize": 2251
                 }
             }]
         }, {
             "Item": {
                 "Name": "TinyExport/BasicWorkshop/html5/development/bin/bindings.js",
-                "Size": 112887,
-                "CompressedSize": 9263
+                "Size": 135169,
+                "CompressedSize": 10968
             }
         }, {
             "Item": {
@@ -121,15 +127,15 @@
             "Children": [{
                 "Item": {
                     "Name": "/Users/clou/MyTinyGame/TinyPlanet/TinyExport/BasicWorkshop/html5/development/ScriptAssemblies/tsc-emit.js",
-                    "Size": 15538,
-                    "CompressedSize": 3317
+                    "Size": 18824,
+                    "CompressedSize": 3832
                 }
             }]
         }, {
             "Item": {
                 "Name": "TinyExport/BasicWorkshop/html5/development/bin/main.js",
-                "Size": 5338,
-                "CompressedSize": 1406
+                "Size": 7228,
+                "CompressedSize": 1560
             }
         }, {
             "Item": {

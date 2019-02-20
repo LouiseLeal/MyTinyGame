@@ -1,0 +1,19 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "af1af86ecf9f4e818db531949fdb539a",
+    "Name": "SpawnerGroup",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "Fields": [{
+        "Id": "1f449b4b8eb648fabf3a83d48005add1",
+        "Name": "spawnerGroup",
+        "FieldType": { "Id": "1bff5adddd7c41de98d3329c7c641208", "Name": "String" },
+        "Array": false,
+        "Visibility": 0
+    }],
+    "DefaultValue": {
+        "Type": { "Id": "af1af86ecf9f4e818db531949fdb539a", "Name": "spawnerGroup" }
+    }
+}]

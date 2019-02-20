@@ -1,0 +1,74 @@
+{
+    "Success": true,
+    "Diagnostics": [],
+    "Systems": [
+        {
+            "Name": "InputMovimentSystem",
+            "QualifiedName": "game.InputMovimentSystem",
+            "Description": "New System",
+            "Source": {
+                "File": "/Users/clou/MyTinyGame/TinyPlanet/Assets/WorkShopTutorial/WhorkshopTutorial/Scripts/InputMovimentSystem.ts",
+                "Line": 7,
+                "Character": 17
+            },
+            "ExecuteAfter": [
+                "ut.Shared.InputFence"
+            ]
+        },
+        {
+            "Name": "Time",
+            "QualifiedName": "ut.Time",
+            "Description": "Placeholder system to provide a UnityEngine.Time like API\r\n\r\ne.g. \r\n  let deltaTime = ut.Time.deltaTime();\r\n  let time = ut.Time.time();",
+            "Source": {
+                "File": "/Users/clou/MyTinyGame/TinyPlanet/Assets/WorkShopTutorial/WhorkshopTutorial/Scripts/Time.ts",
+                "Line": 12,
+                "Character": 17
+            },
+            "ExecuteBefore": [
+                "ut.Shared.UserCodeStart"
+            ]
+        }
+    ],
+    "Filters": [],
+    "Behaviours": [],
+    "Performance": [
+        {
+            "Key": "tsconfig",
+            "Description": "Time taken to read and parse the given tsconfig.json file",
+            "Duration": 39,
+            "Steps": 1
+        },
+        {
+            "Key": "checksum",
+            "Description": "Time taken to compute the MD5 of all inputs",
+            "Duration": 200,
+            "Steps": 1
+        },
+        {
+            "Key": "compile",
+            "Description": "Time taken to compile the TypeScript program",
+            "Duration": 862,
+            "Steps": 11
+        },
+        {
+            "Key": "emit",
+            "Description": "Time taken to generate and write the JavaScript output",
+            "Duration": 40,
+            "Steps": 2
+        },
+        {
+            "Key": "metadata",
+            "Description": "Time taken to reflect Tiny metadata from the compiled program",
+            "Duration": 4,
+            "Steps": 2
+        }
+    ],
+    "SourceFiles": [
+        "/Users/clou/MyTinyGame/TinyPlanet/Assets/WorkShopTutorial/WhorkshopTutorial/Scripts/InputMovimentSystem.ts",
+        "/Users/clou/MyTinyGame/TinyPlanet/Assets/WorkShopTutorial/WhorkshopTutorial/Scripts/Time.ts",
+        "/Users/clou/MyTinyGame/TinyPlanet/Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityGroup.ts",
+        "/Users/clou/MyTinyGame/TinyPlanet/Library/PackageCache/com.unity.tiny@0.13.4-preview/Runtime/Modules/UTiny.EntityGroup/Scripts/EntityLookupCache.ts"
+    ],
+    "InputHash": "53e822e7176786c45949f8940ad1f2f2",
+    "GeneratedAt": "Sun Jan 13 2019 21:21:33 GMT-0400 (-04)"
+}

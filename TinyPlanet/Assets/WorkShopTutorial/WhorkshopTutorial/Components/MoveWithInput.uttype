@@ -1,0 +1,12 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "ad347fff73ed4ca8b49afe1996e78e1e",
+    "Name": "MoveWithInput",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "DefaultValue": {
+        "Type": { "Id": "ad347fff73ed4ca8b49afe1996e78e1e", "Name": "MoveWithInput" }
+    }
+}]

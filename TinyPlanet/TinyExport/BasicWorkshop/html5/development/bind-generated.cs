@@ -1,4 +1,16 @@
 using Unity.Collections.LowLevel.Unsafe;
+namespace entities.game.BulletGroup
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct Component : UTiny.IComponentData
+    {
+
+
+
+
+
+    }
+}
 namespace entities.game.EnemyGroup
 {
     [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
@@ -54,6 +66,18 @@ namespace game
 namespace game
 {
     [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct BulletTag : UTiny.IComponentData
+    {
+
+
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
     public struct ChangeOverTime : UTiny.IComponentData
     {
 
@@ -68,6 +92,32 @@ namespace game
 {
     [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
     public struct EnemyTag : UTiny.IComponentData
+    {
+
+
+        public int number;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct InitialPosition : UTiny.IComponentData
+    {
+
+
+        public Unity.Mathematics.float3 position;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct Lazer : UTiny.IComponentData
     {
 
 
@@ -139,6 +189,32 @@ namespace game
         public float delay;
         public bool isPaused;
         public string spawnedGroup;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct SpawnerGroup : UTiny.IComponentData
+    {
+
+
+        public string spawnerGroup;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct Name : UTiny.IComponentData
+    {
+
+
+        public string EntityName;
 
 
 
@@ -354,6 +430,22 @@ namespace ut.EditorExtensions
 
 
         public int layer;
+
+
+
+    }
+}
+namespace game
+{
+    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
+    public struct BulletBehaviour_State : UTiny.IComponentData
+    {
+
+
+        public bool initialized;
+        public bool enabled;
+        public bool onEnableCalled;
+        public bool onDisableCalled;
 
 
 

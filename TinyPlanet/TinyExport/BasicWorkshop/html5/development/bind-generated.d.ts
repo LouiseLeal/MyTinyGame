@@ -93,6 +93,17 @@ declare namespace game{
         static _tempHeapPtr(v: Boundaries): number;
         static _dtorFn(v: Boundaries): void;
     }
+    class BulletTag extends ut.Component {
+        constructor();
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: BulletTag): BulletTag;
+        static _toPtr(p: number, v: BulletTag): void;
+        static _tempHeapPtr(v: BulletTag): number;
+        static _dtorFn(v: BulletTag): void;
+    }
     class ChangeOverTime extends ut.Component {
         constructor();
         changePerSecond: number;
@@ -107,6 +118,7 @@ declare namespace game{
     }
     class EnemyTag extends ut.Component {
         constructor();
+        number: number;
         static readonly cid: number;
         static readonly _view: any;
         static readonly _isSharedComp: boolean;
@@ -115,6 +127,29 @@ declare namespace game{
         static _toPtr(p: number, v: EnemyTag): void;
         static _tempHeapPtr(v: EnemyTag): number;
         static _dtorFn(v: EnemyTag): void;
+    }
+    class InitialPosition extends ut.Component {
+        constructor();
+        position: ut.Math.Vector3;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: InitialPosition): InitialPosition;
+        static _toPtr(p: number, v: InitialPosition): void;
+        static _tempHeapPtr(v: InitialPosition): number;
+        static _dtorFn(v: InitialPosition): void;
+    }
+    class Lazer extends ut.Component {
+        constructor();
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: Lazer): Lazer;
+        static _toPtr(p: number, v: Lazer): void;
+        static _tempHeapPtr(v: Lazer): number;
+        static _dtorFn(v: Lazer): void;
     }
     class MoveSpeed extends ut.Component {
         constructor();
@@ -178,6 +213,30 @@ declare namespace game{
         static _toPtr(p: number, v: Spawner): void;
         static _tempHeapPtr(v: Spawner): number;
         static _dtorFn(v: Spawner): void;
+    }
+    class SpawnerGroup extends ut.Component {
+        constructor();
+        spawnerGroup: string;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: SpawnerGroup): SpawnerGroup;
+        static _toPtr(p: number, v: SpawnerGroup): void;
+        static _tempHeapPtr(v: SpawnerGroup): number;
+        static _dtorFn(v: SpawnerGroup): void;
+    }
+    class Name extends ut.Component {
+        constructor();
+        EntityName: string;
+        static readonly cid: number;
+        static readonly _view: any;
+        static readonly _isSharedComp: boolean;
+        static _size: number;
+        static _fromPtr(p: number, v?: Name): Name;
+        static _toPtr(p: number, v: Name): void;
+        static _tempHeapPtr(v: Name): number;
+        static _dtorFn(v: Name): void;
     }
 }
 declare namespace ut{
@@ -316,6 +375,7 @@ declare namespace ut{
         [module: string]: any;
         game: {
             [data: string]: EntityGroupData;
+            BulletGroup: EntityGroupData;
             EnemyGroup: EntityGroupData;
             ExplosionGroup: EntityGroupData;
             MainGroup: EntityGroupData;

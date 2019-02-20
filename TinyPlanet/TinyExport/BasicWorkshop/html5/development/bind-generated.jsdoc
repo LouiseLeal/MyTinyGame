@@ -1,6 +1,12 @@
 /**
 
 @component
+@memberof entities.game.BulletGroup
+@name Component
+*/
+/**
+
+@component
 @memberof entities.game.EnemyGroup
 @name Component
 */
@@ -50,6 +56,12 @@
 
 @component
 @memberof game
+@name BulletTag
+*/
+/**
+
+@component
+@memberof game
 @name ChangeOverTime
 */
 /**
@@ -63,6 +75,30 @@
 @component
 @memberof game
 @name EnemyTag
+*/
+/**
+
+@member {int32}
+@memberof game.EnemyTag
+@name number
+*/
+/**
+
+@component
+@memberof game
+@name InitialPosition
+*/
+/**
+
+@member {ut.Math.Vector3}
+@memberof game.InitialPosition
+@name position
+*/
+/**
+
+@component
+@memberof game
+@name Lazer
 */
 /**
 
@@ -141,6 +177,30 @@
 @member {string}
 @memberof game.Spawner
 @name spawnedGroup
+*/
+/**
+
+@component
+@memberof game
+@name SpawnerGroup
+*/
+/**
+
+@member {string}
+@memberof game.SpawnerGroup
+@name spawnerGroup
+*/
+/**
+
+@component
+@memberof game
+@name Name
+*/
+/**
+
+@member {string}
+@memberof game.Name
+@name EntityName
 */
 /**
 
@@ -380,6 +440,36 @@
 
 @component
 @memberof game
+@name BulletBehaviour_State
+*/
+/**
+
+@member {bool}
+@memberof game.BulletBehaviour_State
+@name initialized
+*/
+/**
+
+@member {bool}
+@memberof game.BulletBehaviour_State
+@name enabled
+*/
+/**
+
+@member {bool}
+@memberof game.BulletBehaviour_State
+@name onEnableCalled
+*/
+/**
+
+@member {bool}
+@memberof game.BulletBehaviour_State
+@name onDisableCalled
+*/
+/**
+
+@component
+@memberof game
 @name EnemyBehavior_State
 */
 /**
@@ -416,6 +506,12 @@
 
 @system
 @memberof game
+@name InputShootSystemJS
+*/
+/**
+
+@system
+@memberof game
 @name PlayerCollisionSystemJS
 */
 /**
@@ -435,6 +531,12 @@
 @system
 @memberof ut
 @name TimeJS
+*/
+/**
+
+@system
+@memberof game
+@name BulletBehaviour_OnEntityEnableJS
 */
 /**
 

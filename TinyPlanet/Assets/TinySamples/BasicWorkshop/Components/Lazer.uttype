@@ -1,0 +1,12 @@
+﻿[{
+    "$TypeId": 3,
+    "Id": "6a5299470c3a4b4db70e52bf0ba49a5e",
+    "Name": "Lazer",
+    "ExportFlags": 0,
+    "Unlisted": false,
+    "Visibility": 0,
+    "TypeCode": "Component",
+    "DefaultValue": {
+        "Type": { "Id": "6a5299470c3a4b4db70e52bf0ba49a5e", "Name": "Lazer" }
+    }
+}]
